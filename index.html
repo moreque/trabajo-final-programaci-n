@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M.O.A. | Museo de Obras de Arte</title>
+    <!-- Tipografías editoriales importadas desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Vinculación con la hoja de estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Encabezado principal fijo en la parte superior -->
+    <nav class="navbar">
+        <div class="nav-contenedor">
+            <h1 class="logo">M.O.A. <span class="logo-sub">MUSEO DE OBRAS DE ARTE</span></h1>
+        </div>
+        <!-- Botones de navegación entre la galería y la sección de entradas -->
+        <div class="nav-tabs">
+            <button class="btn-tab activo" data-vista="vista-obras">Todas las obras</button>
+            <button class="btn-tab" data-vista="vista-entradas">Entradas y Visitas</button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- SECCIÓN 1: Catálogo de obras (se completa dinámicamente desde app.js) -->
+        <section id="vista-obras" class="vista-seccion">
+            <div id="galeria-obras" class="lista-obras-full"></div>
+        </section>
+
+        <!-- SECCIÓN 2: Formulario de reserva y listado de tickets emitidos -->
+        <section id="vista-entradas" class="vista-seccion oculto">
+            <div class="contenedor-entradas">
+                <!-- Panel izquierdo: Formulario de carga de datos -->
+                <div class="panel">
+                    <span class="etiqueta-roja">TAQUILLA ONLINE</span>
+                    <h2>Reserva de Entradas</h2>
+                    <form id="form-reserva">
+                        <div class="campo">
+                            <label for="visitante">NOMBRE COMPLETO DEL VISITANTE</label>
+                            <input type="text" id="visitante" required placeholder="Ej. Valentina Gómez">
+                        </div>
+
+                        <div class="campo">
+                            <label for="select-obra">SALA / OBRA A VISITAR</label>
+                            <select id="select-obra" required></select>
+                        </div>
+
+                        <div class="campo">
+                            <label for="cantidad">NÚMERO DE ENTRADAS</label>
+                            <input type="number" id="cantidad" min="1" max="10" value="1" required>
+                        </div>
+
+                        <button type="submit" class="btn-prado-rojo">CONFIRMAR RESERVA</button>
+                    </form>
+                </div>
+
+                <!-- Panel derecho: Visualización de reservas guardadas -->
+                <div class="panel mis-reservas">
+                    <span class="etiqueta-roja">PASES EMITIDOS</span>
+                    <h2>Mis Reservas Confirmadas</h2>
+                    <div id="lista-reservas" class="grid-reservas"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="footer-prado">
+        <p>M.O.A. — Museo de Obras de Arte</p>
+    </footer>
+
+    <!-- Lógica de Programación Orientada a Objetos -->
+    <script src="app.js"></script>
+</body>
+</html>
